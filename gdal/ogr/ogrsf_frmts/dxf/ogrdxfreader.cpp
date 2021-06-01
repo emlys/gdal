@@ -214,7 +214,7 @@ int OGRDXFReader::ReadValueRaw( char *pszValueBuf, int nValueBufSize )
 
         nValueBufLen = strlen(pszValueBuf);
 
-        if( osValue.length() > nValueBufSize - 1 )
+        if( (int)(osValue.length()) > nValueBufSize - 1 )
         {
             CPLDebug( "DXF", "Long line truncated to %d characters.\n%s...",
                       nValueBufSize - 1,
@@ -223,7 +223,7 @@ int OGRDXFReader::ReadValueRaw( char *pszValueBuf, int nValueBufSize )
     }
 
     // Copy the last (normally, the only) section of this line into the buffer
-    if( (iEOL - iSrcBufferOffset) > nValueBufSize - nValueBufLen - 1 )
+    if( (iEOL - iSrcBufferOffset) > nValueBufSize - (int)nValueBufLen - 1 )
     {
         strncpy( pszValueBuf + nValueBufLen,
                  achSrcBuffer + iSrcBufferOffset,
