@@ -4,8 +4,6 @@ set -e
 
 export PROJ_NETWORK=ON
 
-sudo -H pip3 install -U numpy
-
 echo 'Running CPP unit tests'
 (cd build && make quicktest)
 
