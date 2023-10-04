@@ -11,15 +11,15 @@ echo 'Running Python unit tests'
 # install test dependencies
 sudo -H pip3 install -U -r autotest/requirements.txt
 
-# # https://github.com/rouault/gdal/runs/1300694473
-# # import issues of ogr_pg from ../ogr
-# mv autotest/utilities/test_ogr2ogr.py autotest/utilities/test_ogr2ogr.py.disabled
-# mv autotest/pyscripts/test_ogr2ogr_py.py autotest/pyscripts/test_ogr2ogr_py.py.disabled
+# https://github.com/rouault/gdal/runs/1300694473
+# import issues of ogr_pg from ../ogr
+mv autotest/utilities/test_ogr2ogr.py autotest/utilities/test_ogr2ogr.py.disabled
+mv autotest/pyscripts/test_ogr2ogr_py.py autotest/pyscripts/test_ogr2ogr_py.py.disabled
 
-# # Run all the Python autotests
-# (cd build && ctest -V -R autotest)
+# Run all the Python autotests
+(cd build && ctest -V -R autotest)
 
-PYTHONPATH=/Users/runner/work/gdal/gdal/build/swig/python/ /usr/local/miniconda/envs/test/bin/python3.8 -X dev ci/test.py
+# PYTHONPATH=/Users/runner/work/gdal/gdal/build/swig/python/ /usr/local/miniconda/envs/test/bin/python3.8 -X dev ci/test.py
 
 # For some reason, the tests crash at process exit
 # (cd autotest; $PYTEST 2>&1 | tee /tmp/log.txt || /bin/true)
