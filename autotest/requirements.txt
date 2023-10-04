@@ -5,5 +5,3 @@ pytest-env
 lxml
 jsonschema
 filelock
-numpy
-requests
